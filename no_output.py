@@ -28,7 +28,7 @@ def can_move(board, x, y, player):
         return False
     return count_reverses(board, x, y, player) > 0
 
-def wrong_choise(board, player):
+def stupid_choise(board, player):
     return (0, 0)
 
 def main():
@@ -36,8 +36,6 @@ def main():
     board = [None] * BOARD_SZ
     for i in range(BOARD_SZ):
         board[i] = list(map(int, input().split()))
-    move = stupid_choise(board, player)
-    print(move[0], move[1])
 
 
 main()
