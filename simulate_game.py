@@ -2,13 +2,16 @@ from subprocess import Popen, PIPE, TimeoutExpired
 from time import time
 import argparse
 import reversi
+from sys import platform
 
 side_names = [None] * 2
 side_names[reversi.WHITE] = "White"
 side_names[reversi.BLACK] = "Black"
 TIME_LIMIT = 5
-PYTHON_EXEC = "python"
-
+if "win" in platform.lower():
+    PYTHON_EXEC = "python"
+else:
+    PYTHON_EXEC = "python3"
 
 def move_repr(x, y, player):
     return f"{side_names[player]}: {chr(ord('a') + y)}{8-x}\n"
